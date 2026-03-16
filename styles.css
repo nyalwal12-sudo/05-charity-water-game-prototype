@@ -13,3 +13,160 @@ Secondary Colors:
 - Pink:       #F16061
 
 */
+
+:root {
+  --primary: #FFC907;
+  --complimentary: #2E9DF7;
+  --background: #f7f9ff;
+  --card-back: #ffffff;
+  --card-border: #333333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  color: #1f1f1f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+h1 {
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.game-info {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#start-btn,
+#restart-btn {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#start-btn {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+#restart-btn {
+  background-color: var(--primary);
+  color: #1f1f1f;
+}
+
+#start-btn:hover,
+#restart-btn:hover {
+  opacity: 0.9;
+}
+
+.board {
+  width: min(620px, 100%);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.card {
+  background-color: var(--card-back);
+  border: 2px solid var(--card-border);
+  border-radius: 8px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .game-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+  }
+
+  .controls {
+    justify-content: center;
+  }
+
+  .board {
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .card {
+    height: 70px;
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .board {
+    grid-template-columns: repeat(4, 1fr);
+    width: 620px;
+  }
+
+  .card {
+    height: 90px;
+    font-size: 2rem;
+  }
+}
+
+.card.matched {
+  background-color: #d4f7e6;
+  border-color: var(--complimentary);
+  cursor: default;
+}
+
+.card.flipped {
+  background-color: var(--primary);
+  color: #1f1f1f;
+  transform: scale(1.03);
+}
+
+@media (max-width: 425px) {
+  .board {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+  }
+
+  .card {
+    height: 90px;
+    font-size: 1.4rem;
+  }
+}

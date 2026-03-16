@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Game</title>
+    <title>Charity Water Memory Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to the Charity Water Game Prototype</h1>
+    <h1>Charity Water Memory Game</h1>
+
+    <div class="game-info">
+        <div>Score: <span id="score">0</span></div>
+        <div>Moves: <span id="moves">0</span>/<span id="max-moves">12</span></div>
+        <div>Time: <span id="time">00:00</span></div>
+    </div>
+
+    <div class="controls">
+        <button id="start-btn">Start Game</button>
+        <button id="restart-btn">Restart Game</button>
+    </div>
+
+    <div id="board" class="board"></div>
+
     <script src="script.js"></script>
 </body>
 </html>
